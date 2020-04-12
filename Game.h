@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include "letterimage.h"
+#include "infowidget.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -18,18 +20,27 @@ public:
     ~Game();
 
 private:
+    enum State {BOOT, PLAY,AWAITING_START, ERROR};
     Ui::Game *ui;
     void keyPressEvent(QKeyEvent *event);
     void loadPicture(void);
     bool loadFile(const QString &);
     void setImage(const QImage &newImage);
     void pickRandom(void);
-
+    void startTheGame(void);
+    void setGameLayout(void);
+    void loadKeys(void);
+    void setInfoText(void);
 
     QGraphicsScene *scene;
+    //infoWidget *info;
 
-    char letters[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    std::vector<letterImage> letters;
     Qt::Key currentKey;
+    int numOfKeys;
+    int countScore;
+    State state;
 
 
 };

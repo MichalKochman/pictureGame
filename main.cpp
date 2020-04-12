@@ -3,7 +3,7 @@
 
 #include <QApplication>
 
-#include "game.h"
+#include "Game.h"
 
 int main(int argc, char *argv[])
 {
