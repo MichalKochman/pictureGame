@@ -1,5 +1,5 @@
 /*
- * infowidget.h
+ * licenceinfo.cpp
  *
  * Copyright 2020 Michal Kochman <michalkochman@email.cz>
  *
@@ -20,31 +20,12 @@
  *
  *
  */
-#ifndef INFOWIDGET_H
-#define INFOWIDGET_H
 
-#include <QWidget>
-#include "ui_infowidget.h"
-namespace Ui {
-class infoWidget;
+#include "licenceinfo.h"
+#include <QFile>
+
+licenceInfo::licenceInfo()
+{
+
 }
 
-class infoWidget : public QWidget
-{
-    Q_OBJECT
-
-public:
-    explicit infoWidget(QWidget *parent = nullptr);
-    ~infoWidget();
-    void setTextWelcome();
-    void setTextNoImg();
-
-private:
-    Ui::infoWidget *ui;
-    void setFrame(void);
-    void setLayout(void);
-    void setSplitter(int middleY, int startX, int endX);
-
-};
-
-#endif // INFOWIDGET_H

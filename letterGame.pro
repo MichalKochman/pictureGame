@@ -19,12 +19,14 @@ SOURCES += \
     Game.cpp \
     infowidget.cpp \
     letterimage.cpp \
+    licenceinfo.cpp \
     main.cpp
 
 HEADERS += \
     Game.h \
     infowidget.h \
-    letterimage.h
+    letterimage.h \
+    licenceinfo.h
 
 FORMS += \
     Game.ui \

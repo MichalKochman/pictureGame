@@ -1,3 +1,26 @@
+/*
+ * Game.cpp
+ *
+ * Copyright 2020 Michal Kochman <michalkochman@email.cz>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+ * MA 02110-1301, USA.
+ *
+ *
+ */
+
 #include "Game.h"
 #include "ui_Game.h"
 #include <QDebug>
@@ -22,6 +45,8 @@ Game::Game(QWidget *parent)
     ui->setupUi(this);
     setGameLayout();
     ui->scoreBoard->hide();
+    ui->ImgDisplay->hide();
+    ui->licencetext->hide();
     //info->show();
     loadKeys();
     //this->setCentralWidget(info);
@@ -43,7 +68,14 @@ void Game::keyPressEvent(QKeyEvent *event)
     qDebug() << "Game::keyPressEvent():" << event;
 
      if (event->key()== Qt::Key_Escape){
+         if (state == State::AWAITING_START){
             QCoreApplication::exit(0);
+         } else {
+             state = State::AWAITING_START;
+             ui->infopanel->setTextWelcome();
+             ui->infopanel->show();
+             ui->ImgDisplay->hide();
+         }
      } else if (state == State::AWAITING_START){
          startTheGame();
      } else if (event->key() == currentKey) {
@@ -110,12 +142,16 @@ void Game::pickRandom(void){
 
 void Game::startTheGame(void){
   state = State::PLAY;
-  ui->infopanel->hide();
+
+
   pickRandom();
   countScore=0;
   ui->scoreBoard->setText("Score: 0");
-  ui->scoreBoard->show();
   qDebug()<<"GameStarted";
+
+  ui->infopanel->hide();
+  ui->ImgDisplay->show();
+  ui->scoreBoard->show();
 
 }
 

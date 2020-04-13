@@ -1,5 +1,5 @@
 /*
- * infowidget.h
+ * licenceinfo.h
  *
  * Copyright 2020 Michal Kochman <michalkochman@email.cz>
  *
@@ -20,31 +20,24 @@
  *
  *
  */
-#ifndef INFOWIDGET_H
-#define INFOWIDGET_H
 
-#include <QWidget>
-#include "ui_infowidget.h"
-namespace Ui {
-class infoWidget;
-}
 
-class infoWidget : public QWidget
+#ifndef LICENCEINFO_H
+#define LICENCEINFO_H
+
+#include <QString>
+class licenceInfo
 {
-    Q_OBJECT
-
 public:
-    explicit infoWidget(QWidget *parent = nullptr);
-    ~infoWidget();
-    void setTextWelcome();
-    void setTextNoImg();
+    licenceInfo();
 
-private:
-    Ui::infoWidget *ui;
-    void setFrame(void);
-    void setLayout(void);
-    void setSplitter(int middleY, int startX, int endX);
+    bool checkLicenceFile(const QString path);
 
+    QString copyright = "letterGame v0.0.2  Copyright (C) 2020  Michal Kochman <michalkochman@email.cz>";
+    QString waranty = "The program is provided AS IS with NO WARRANTY OF ANY KIND.";
+    QString licence = "This is free software, and you are welcome to redistribute it under conditions of GPL, see www.gnu.org/licenses/gpl-3.0.txt.";
+    QString QtInfo = "This program was made using Qt development enviroment obtained under GPL, see www.qt.io for more info.";
+    QString obligations = "Any copy of this program must be distributed with full text of the licence.";
 };
 
-#endif // INFOWIDGET_H
+#endif // LICENCEINFO_H

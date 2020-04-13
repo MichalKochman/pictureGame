@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>461</width>
-    <height>320</height>
+    <width>676</width>
+    <height>622</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,26 +19,13 @@
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
-  <widget class="QLabel" name="copyleft">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>280</y>
-     <width>67</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>copyleft</string>
-   </property>
-  </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>441</width>
-     <height>311</height>
+     <x>20</x>
+     <y>10</y>
+     <width>421</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -60,6 +47,58 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QLabel" name="licence">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>270</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>copyleft</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="copyleft">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>280</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>copyleft</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="Line" name="splitterV">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>210</y>
+     <width>3</width>
+     <height>250</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="Line" name="splitterH">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>230</y>
+     <width>118</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
   </widget>
  </widget>
  <resources/>
